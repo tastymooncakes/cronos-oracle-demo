@@ -1,7 +1,7 @@
 # PythPrice on Cronos Testnet
 
 ## TL;DR
-> A minimal example of integrating [Pyth Network](https://pyth.network) price feeds (CRO/USD) into a smart contract on the Cronos Testnet using Pyth's Pull Model and `@pythnetwork/pyth-evm-js`.
+> A minimal example of integrating [Pyth Network](https://pyth.network) price feeds (CRO/USD) into a smart contract on the Cronos Testnet using Pyth's Pull Model and `@pythnetwork/pyth-evm-js` SDK.
 
 ---
 
@@ -108,6 +108,22 @@ Update fee: 1
 Price fetched. Tx Hash: 0x985780708ff161ccc0a4948aa81c13e1e4c87e336e90ee2db3ae8aa1a6883e04
 PriceUpdated event: priceFeed=0x23199c2bcb1303f667e733b9934db9eca5991e765b45f5ed18bc4b231415f2fe, price=10154740
 ```
+
+## Troubleshooting
+
+- **"Insufficient fee sent" error**  
+  Make sure you're calculating the update fee correctly using the Pyth SDK (`getUpdateFee`). Also double-check your wallet has enough TCRO to cover the transaction.
+
+- **"Stale price" or "No VAA received" errors**  
+  Ensure your network connection to the Pyth data distribution service (Hermes) is stable. Retry fetching the price or verify the asset feed ID is correct.
+
+- **Contract deployment fails**  
+  Confirm you're using the correct Pyth Oracle contract address for the network (Testnet vs Mainnet). Also ensure your `.env` file has the right RPC URL and private key.
+
+- **"Invalid VAA" or "Signature verification failed" errors**  
+  This usually means the VAA was not fetched correctly or has expired. Re-fetch the VAA and ensure it's submitted promptly.
+
+
 ## Contributing
 PRs and Issues are welcome. If you would like to expand this project to support more feeds or networks, feel free to fork and build on it.
 
