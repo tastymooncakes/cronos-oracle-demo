@@ -70,7 +70,7 @@ This means:
 
 ---
 
-## TL;DR
+## Final Summary
 
 > Pyth keeps data **off-chain** until your dApp **requests it**. When needed:
 >

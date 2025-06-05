@@ -34,6 +34,28 @@ For a more detailed breakdown of how Pyth works on Cronos and why its ideal, see
 ├── .env # RPC URL & private key
 └── hardhat.config.js
 ```
+## Prerequisites
+Before running this project, make sure the following are set up:
+
+### Wallet & Private Key
+You will need a MetaMask or similar wallet with:
+- Cronos Testnet Network Configurations 
+- Private Key ready to be stored in `.env` file (used for deploying contract)
+> **Important** Never expose your private keys in public repositories
+
+### Cronos Testnet Network Configurations
+If Cronos Testnet is not already setup, you can add it manually:
+- **Network Name:** Cronos Testnet
+- **RPC URL:** https://evm-t3.cronos.org
+- **Chain ID:** 338
+- **Explorer URL:** https://explorer.cronos.org/testnet
+
+[Official Setup Guide](https://docs.cronos.org/for-users/metamask#tab-testnet)
+
+### Testnet CRO Tokens
+You’ll need testnet CRO to pay for gas on Cronos Testnet. Use the official faucet to request tokens:
+
+[Cronos Testnet Faucet](https://cronos.org/faucet)
 
 ## Setup
 
@@ -58,7 +80,7 @@ PRIVATE_KEY=your_private_key_here
 ```
 npx hardhat run scripts/deploy.js --network cronos_testnet
 ```
-This will deploy the PythPrice contract to Cronos Testnet using the Pyth Oracle address. If you want to deploy to Cronos Mainnet simply adjust the `PYTH_CONTRACT_ADDRESS` variable in `deploy.js`.
+This will deploy the PythPrice contract to Cronos Testnet using the Pyth Oracle address. If you want to deploy to Cronos Mainnet simply adjust the [`PYTH_CONTRACT_ADDRESS`](https://github.com/tastymooncakes/cronos-oracle-demo/blob/main/scripts/deploy.js#L9) variable in `deploy.js`.
 
 ### Cronos EVM
 - Mainnet: [0xe0d0e68297772dd5a1f1d99897c581e2082dba5b](https://cronoscan.com/address/0xe0d0e68297772dd5a1f1d99897c581e2082dba5b)
@@ -72,7 +94,7 @@ Deployed PythPrice to:", 0xDDe28D67ABd7d5D0920bD6995c2F186dD7C2153a
 ```
 
 ## Fetch & Submit Price
-Once deployed, replace `contract_address` with the contract address from the deploy step and run the `fetch-price.js` script:
+Once deployed, replace [`contract_address`](https://github.com/tastymooncakes/cronos-oracle-demo/blob/main/scripts/fetch-price.js#L25) in `fetch-price.js` with the contract address from the deploy step and run the `fetch-price.js` script:
 
 ```bash
 node scripts/fetch-price.js
@@ -99,7 +121,7 @@ For this project we used the price feed id that corresponds to CRO/USD
 
 - CRO/USD: `0x23199c2bcb1303f667e733b9934db9eca5991e765b45f5ed18bc4b231415f2fe`
 
-You can replace this with any other [Pyth-supported feed](https://www.pyth.network/developers/price-feed-ids) as needed. Simply change `price_feed_id` in `fetch-price.js`. 
+You can replace this with any other [Pyth-supported feed](https://www.pyth.network/developers/price-feed-ids) as needed. Simply change [`price_feed_id`](https://github.com/tastymooncakes/cronos-oracle-demo/blob/main/scripts/fetch-price.js#L6) in `fetch-price.js`. 
 
 ### Example Ouput
 ```
