@@ -90,7 +90,7 @@ This will deploy the PythPrice contract to Cronos Testnet using the Pyth Oracle 
 ```
 Deploying PythPrice contract ...
 Using Pyth Oracle Address:  0x36825bf3Fbdf5a29E2d5148bfe7Dcf7B5639e320
-Deployed PythPrice to:", 0xDDe28D67ABd7d5D0920bD6995c2F186dD7C2153a
+Deployed PythPrice to: 0xDDe28D67ABd7d5D0920bD6995c2F186dD7C2153a
 ```
 
 ## Fetch & Submit Price
@@ -130,6 +130,7 @@ Update fee: 1
 Price fetched. Tx Hash: 0x985780708ff161ccc0a4948aa81c13e1e4c87e336e90ee2db3ae8aa1a6883e04
 PriceUpdated event: priceFeed=0x23199c2bcb1303f667e733b9934db9eca5991e765b45f5ed18bc4b231415f2fe, price=10154740
 ```
+**Parsed Price (8 decimals):** 0.10154740
 
 ## Troubleshooting
 
